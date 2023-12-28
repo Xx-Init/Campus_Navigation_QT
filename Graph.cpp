@@ -470,7 +470,8 @@ void Graph:: buildMST(vector<int>& places){
     uzi->listWidget->addItem("[---Begin---] Outputs the shortest path on the minimum spanning tree");
     uzi->listWidget->addItem("On the minimum spanning tree, the shortest length is "+QString::number(T.minDis));
     uzi->listWidget->addItem("Here is the shortest path:\n"+QString::fromStdString(V[path[0]].name)+"->");
-    for(int i = 1; i < (int)path.size(); i ++) uzi->listWidget->addItem(QString::fromStdString(V[path[i]].name));
+    for(int i = 1; i < (int)path.size()-1; i ++) uzi->listWidget->addItem(QString::fromStdString(V[path[i]].name+"->"));
+    uzi->listWidget->addItem(QString::fromStdString(V[path[(int)path.size()-1]].name));
     uzi->listWidget->addItem("[---Finish---] Outputs the shortest path on the minimum spanning tree");
 }
 // task 7
